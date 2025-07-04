@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CourseServiceImpl implements  CourseService{
+//public class CourseServiceImpl implements  CourseService{
+public class CourseServiceImpl{
 
     //RDS DB
     private final List<Course> courses = new ArrayList<>();

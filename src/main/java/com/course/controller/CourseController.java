@@ -1,7 +1,6 @@
 package com.course.controller;
 
 import com.course.dto.Course;
-import com.course.service.CourseService;
 import com.course.service.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
