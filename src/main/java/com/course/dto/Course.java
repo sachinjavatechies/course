@@ -13,4 +13,11 @@ public class Course {
     private String name;
     private double price;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
