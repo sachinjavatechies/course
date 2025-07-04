@@ -2,6 +2,7 @@ package com.course.controller;
 
 import com.course.dto.Course;
 import com.course.service.CourseService;
+import com.course.service.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class CourseController {
     //9. Read all the properties from application.properties or separate properties for place holder.
 
     @Autowired
-    private CourseService courseService;
+    private CourseServiceImplgi courseService;
 
     @PostMapping(value ="/addcourse", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Course> addCourse(@RequestBody Course course){
