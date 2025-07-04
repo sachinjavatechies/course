@@ -1,0 +1,10 @@
+#Use the Official OpenJDK 17 image from Docker Hub
+FROM openjdk:17
+#Set working directory inside the container
+WORKDIR /app
+#Copy the compiled jar file into the docker container
+COPY ./target/course.jar /app
+#Expose the port the spring boot application will run on
+EXPOSE 8080
+# Command to run the application
+CMD ["java", "-jar", "course.jar"]
