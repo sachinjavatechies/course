@@ -27,7 +27,7 @@ public class CourseController {
     //9. Read all the properties from application.properties or separate properties for place holder.
 
     @Autowired
-    private CourseServiceImplgi courseService;
+    private CourseServiceImpl courseService;
 
     @PostMapping(value ="/addcourse", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Course> addCourse(@RequestBody Course course){

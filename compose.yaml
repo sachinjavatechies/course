@@ -1,1 +1,8 @@
 services:
+#  springboot-app:
+#    container_name: course-container
+#    image: sachin.javatechies@gmail.com/course:latest
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=localhost
