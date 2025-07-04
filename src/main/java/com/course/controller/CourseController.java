@@ -30,26 +30,26 @@ public class CourseController {
 
     @PostMapping(value ="/addcourse", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Course> addCourse(@RequestBody Course course){
-         courseService.addCourse(course);
+        courseServiceImpl.addCourse(course);
          return new ResponseEntity<>(course, HttpStatus.CREATED);
     }
 
     @GetMapping(value = "getallcourses", produces = "application/json")
     public ResponseEntity<List<Course>> getAllCourses(){
-          List<Course> courses = courseService.getAllCourses();
+          List<Course> courses = courseServiceImpl.getAllCourses();
           return new ResponseEntity<>(courses, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Course> getCourseById(@PathVariable Integer id){
-            Optional<Course> course = courseService.getCourseById(id);
+            Optional<Course> course = courseServiceImpl.getCourseById(id);
             return course.map(value -> new ResponseEntity<>(course.get(), HttpStatus.OK)
                     ).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PutMapping(value = "/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Course> updateCourse(@PathVariable int id, @RequestBody Course newCourse) {
-        boolean updated = courseService.updateCourse(id, newCourse);
+        boolean updated = courseServiceImpl.updateCourse(id, newCourse);
         if (updated) {
             return new ResponseEntity<>(newCourse, HttpStatus.OK);
         } else {
@@ -59,7 +59,7 @@ public class CourseController {
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<Void> deleteCourse(@PathVariable int id) {
-        boolean deleted = courseService.deleteCourse(id);
+        boolean deleted = courseServiceImpl.deleteCourse(id);
         if (deleted) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
