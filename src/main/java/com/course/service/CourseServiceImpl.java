@@ -1,12 +1,14 @@
 package com.course.service;
 
 import com.course.dto.Course;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 //public class CourseServiceImpl implements  CourseService{
+@Service
 public class CourseServiceImpl{
 
     //RDS DB
