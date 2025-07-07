@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/course")
+@RequestMapping("/api/v1/course")
 public class CourseController {
 
     //Feature Development:
@@ -34,20 +34,20 @@ public class CourseController {
          return new ResponseEntity<>(course, HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "getallcourses", produces = "application/json")
+    @GetMapping(value = "/getallcourses", produces = "application/json")
     public ResponseEntity<List<Course>> getAllCourses(){
           List<Course> courses = courseServiceImpl.getAllCourses();
           return new ResponseEntity<>(courses, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}", produces = "application/json", consumes = "application/json")
+    @GetMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<Course> getCourseById(@PathVariable Integer id){
             Optional<Course> course = courseServiceImpl.getCourseById(id);
             return course.map(value -> new ResponseEntity<>(course.get(), HttpStatus.OK)
                     ).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PutMapping(value = "/{id}", produces = "application/json", consumes = "application/json")
+    @PutMapping(value = "/updatecourse/{id}", produces = "application/json")
     public ResponseEntity<Course> updateCourse(@PathVariable int id, @RequestBody Course newCourse) {
         boolean updated = courseServiceImpl.updateCourse(id, newCourse);
         if (updated) {
@@ -57,7 +57,7 @@ public class CourseController {
         }
     }
 
-    @DeleteMapping(value = "/{id}", produces = "application/json")
+    @DeleteMapping(value = "/deletebycourseid/{id}", produces = "application/json")
     public ResponseEntity<Void> deleteCourse(@PathVariable int id) {
         boolean deleted = courseServiceImpl.deleteCourse(id);
         if (deleted) {
